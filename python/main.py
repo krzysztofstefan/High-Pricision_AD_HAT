@@ -35,9 +35,9 @@ try:
             ADC_Value = ADC.ADS1263_GetAll(channelList)    # get ADC1 value
             for i in channelList:
                 if(ADC_Value[i]>>31 ==1):
-                    print("ADC1 IN%d = -%lf" %(i, (REF*2 - ADC_Value[i] * REF / 0x80000000)))  
+                    print("ADC1 IN%d = -%lf %x" %(i, (REF*2 - ADC_Value[i] * REF / 0x80000000),ADC_Value[i]))  
                 else:
-                    print("ADC1 IN%d = %lf" %(i, (ADC_Value[i] * REF / 0x7fffffff)))   # 32bit
+                    print("ADC1 IN%d = %lf %x" %(i, (ADC_Value[i] * REF / 0x7fffffff),ADC_Value[i]))   # 32bit
             for i in channelList:
                 print("\33[2A")
         
